@@ -64,6 +64,12 @@ class EmailSenderApp(Tk):
             self.update_listbox()
             # Clear the text input of recipient_email_entry 
             self.recipient_email_entry.delete(0, END)
+    
+    # Declare update_listbox function to update list box.
+    def update_listbox(self):
+        self.recipients_listbox.delete(0, END)
+        for recipient in self.recipients_email:
+            self.recipients_listbox.insert(END, recipient)
    
     def send_email(self):
         threading.Thread(target=self.send_single_email).start()
@@ -103,5 +109,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
